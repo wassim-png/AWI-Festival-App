@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input, output} from '@angular/core';
 
 @Component({
   selector: 'app-festival-card-component',
@@ -7,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrl: './festival-card-component.css'
 })
 export class FestivalCardComponent {
-  public name: string = 'Holocène';
+  public name = input<string>();
+  public location = input<string>();
+  public year = input<number>();
+
+  public remove = output<number>();
 }

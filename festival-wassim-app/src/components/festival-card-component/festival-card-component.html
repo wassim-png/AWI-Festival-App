@@ -1,1 +1,4 @@
-<p>{{ name }}</p>
+<p>Festival : {{ name() }}</p>
+<p>Location : {{ location() }}</p>
+<p>Year : {{ year() }}</p>
+<button (click)="remove.emit(year()!)">Supprimer</button>
