@@ -1,9 +1,11 @@
 @for (festival of festivals; track festival.year) {
-  <app-festival-card-component
-    [name]="festival.name"
-    [location]="festival.location"
-    [year]="festival.year"
-    (remove)="onDelete($event)"
-    [hidden]="festival.hidden"
-  />
+    @if (!festival.hidden){
+        <app-festival-card-component
+        [name]="festival.name"
+        [location]="festival.location"
+        [year]="festival.year"
+        (remove)="onDelete($event)"
+        [hidden]="festival.hidden"
+        />
+    }
 }
