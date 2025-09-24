@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FestivalCardComponent } from '../festival-card-component/festival-card-component';
+import { FestivalDto } from '../../types/festival-dto';
 
 @Component({
   selector: 'app-festival-list-component',
@@ -8,30 +9,16 @@ import { FestivalCardComponent } from '../festival-card-component/festival-card-
   styleUrl: './festival-list-component.css'
 })
 export class FestivalListComponent {
-  public name1: string = 'Holocène';
-  public location1: string = 'Grenoble, France';
-  public year1: number = 2025;
-  public hide1: boolean = false;
+  public festival1: FestivalDto = { name: "Ardentes", location: "Liège, Belgique", year: 2025, hidden: false}
+  public festival2: FestivalDto = { name: "Rolling Loud", location: "Californie, Etats-Unis", year: 2027, hidden: false}
+  public festival3: FestivalDto = { name: "Holocène", location: "Grenoble, France", year: 2026, hidden: false}
+  public festivals: FestivalDto[] = [this.festival1, this.festival2, this.festival3]
 
-  public name2: string = 'Ardentes';
-  public location2: string = 'Lièges, Belgique';
-  public year2: number = 2026;
-  public hide2: boolean = false;
-
-  public name3: string = 'Rolling Loud';
-  public location3: string = 'Californie, Etas-Unis';
-  public year3: number = 2027;
-  public hide3: boolean = false;
-
-  public onDelete(year: number) {
-    if (year == this.year1) {
-      this.hide1 = true;
-    }
-    if (year == this.year2) {
-      this.hide2 = true;
-    }
-    if (year == this.year3) {
-      this.hide3 = true;
+  public onDelete(year: number): void {
+    const festival = this.festivals.find(f => f.year === year);
+    if (festival) {
+      festival.hidden = true;
     }
   }
 }
+
