@@ -9,10 +9,10 @@ import { FestivalDto } from '../../types/festival-dto';
   styleUrl: './festival-list-component.css'
 })
 export class FestivalListComponent {
-  public festival1: FestivalDto = { name: "Ardentes", location: "Liège, Belgique", year: 2025, hidden: false}
-  public festival2: FestivalDto = { name: "Rolling Loud", location: "Californie, Etats-Unis", year: 2027, hidden: false}
-  public festival3: FestivalDto = { name: "Holocène", location: "Grenoble, France", year: 2026, hidden: false}
-  public festivals: FestivalDto[] = [this.festival1, this.festival2, this.festival3]
+  public festivals: FestivalDto[] = [{ name: "Ardentes", location: "Liège, Belgique", year: 2025, hidden: false, etat: 0},
+    { name: "Rolling Loud", location: "Californie, Etats-Unis", year: 2027, hidden: false, etat: 1},
+    { name: "Holocène", location: "Grenoble, France", year: 2026, hidden: false, etat: 2}
+  ]
 
   public onDelete(year: number): void {
     const festival = this.festivals.find(f => f.year === year);
